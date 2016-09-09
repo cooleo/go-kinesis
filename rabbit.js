@@ -6,7 +6,7 @@ var pageSize = 1000;
 
 var ServiceHelper = function (queue) {
   var self = this;
-  var parserData = function (data) {
+  var parserChannelData = function (data) {
     if (data == null || data == undefined) return;
     var dataObject = JSON.parse(data.body);
     var pages = [];
@@ -19,7 +19,7 @@ var ServiceHelper = function (queue) {
     var requestOption = {
         url: 'http://0.0.0.0:5000/api/v1/channel/' + pageSize
     };
-    return request(requestOption).then(parserData)
+    return request(requestOption).then(parserChannelData)
   };
 
   var pushItems = function (items) {
