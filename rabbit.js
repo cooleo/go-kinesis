@@ -1,16 +1,11 @@
 'use strict';
-
-
 var req = require('request');
 var Promise = require('bluebird');
 var request = Promise.promisify(req);
-
 var pageSize = 1000;
-
 
 var ServiceHelper = function (queue) {
   var self = this;
-
   var parserData = function (data) {
     if (data == null || data == undefined) return;
     var dataObject = JSON.parse(data.body);
